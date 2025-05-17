@@ -1,0 +1,31 @@
+
+public class twilioIntegration {
+    private static final String ACCOUNT_SID = 'AC01d7b34b182d128c7fff5459aadb5XXX';
+    private static final String AUTH_TOKEN = '2280db90b32a4fa7da4a36e9acbe898e';
+    private static final String FROM_PHONE = '+19706361266';
+
+    public static void sendSMS(String toPhone, String message) {
+        String endpoint = 'https://api.twilio.com/2010-04-01/Accounts/' + ACCOUNT_SID + '/Messages.json';
+
+        String body = 'To=' + EncodingUtil.urlEncode(toPhone, 'UTF-8') +
+                      '&From=' + EncodingUtil.urlEncode(FROM_PHONE, 'UTF-8') +
+                      '&Body=' + EncodingUtil.urlEncode(message, 'UTF-8');
+
+        HttpRequest req = new HttpRequest();
+        req.setEndpoint(endpoint);
+        req.setMethod('POST');
+        req.setHeader('Authorization', 'Basic ' +
+            EncodingUtil.base64Encode(Blob.valueOf(ACCOUNT_SID + ':' + AUTH_TOKEN)));
+        req.setHeader('Content-Type', 'application/x-www-form-urlencoded');
+        req.setBody(body);
+
+        Http http = new Http();
+        HttpResponse res = http.send(req);
+
+        if (res.getStatusCode() != 201) {
+            System.debug('Failed to send SMS: ' + res.getBody());
+        } else {
+            System.debug('SMS sent successfully.');
+        }
+    }
+}
