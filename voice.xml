@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <Response>
-  <Say voice="alice">Hello Sangeeth! This is your Salesforce voice call through Twilio. Have a great day!</Say>
+  <Say voice="woman">Hello Sangeeth! This is your Salesforce voice call through Twilio. Have a great day!</Say>
 </Response>
 
