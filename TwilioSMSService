@@ -1,6 +1,6 @@
 
 public class twilioIntegration {
-    private static final String ACCOUNT_SID = 'AC01d7b34b182d128c7fff5459aadb5XXX';
+    private static final String ACCOUNT_SID = 'AC01d7b34b182d128c7fff5459aadbXXXX';
     private static final String AUTH_TOKEN = '2280db90b32a4fa7da4a36e9acbe898e';
     private static final String FROM_PHONE = '+19706361266';
 
